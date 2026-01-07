@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+/* Configure Tailwind v4 to use class-based dark mode instead of media query */
+@variant dark (&:is(.dark, .dark *));
+
+/* ============================================
+   LIGHT MODE COLOR PALETTE (High Contrast)
+   ============================================ */
+:root,
+.light {
+  /* Backgrounds */
+  --background: #ffffff;
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #f1f3f5;
+  --card-background: #ffffff;
+  --header-background: rgba(255, 255, 255, 0.8);
+  
+  /* Text Colors */
+  --foreground: #0f172a; /* Very dark slate for high contrast */
+  --foreground-secondary: #1e293b; /* Dark slate */
+  --foreground-muted: #475569; /* Medium slate - good contrast */
+  --foreground-subtle: #64748b; /* Lighter but still readable */
+  
+  /* Borders */
+  --border: #e2e8f0; /* Light slate border */
+  --border-hover: #cbd5e1;
+  
+  /* Accent Colors */
+  --accent-primary: #1e40af; /* Strong blue */
+  --accent-primary-hover: #1e3a8a;
+  --accent-secondary: #7c3aed; /* Purple */
+  --accent-secondary-hover: #6d28d9;
+  
+  /* Tag Colors */
+  --tag-default-bg: #f1f5f9;
+  --tag-default-text: #0f172a;
+  --tag-primary-bg: #dbeafe;
+  --tag-primary-text: #1e40af;
+  --tag-secondary-bg: #ede9fe;
+  --tag-secondary-text: #7c3aed;
+  
+  /* Interactive States */
+  --hover-bg: #f1f5f9;
+  --hover-text: #0f172a;
+  --active-bg: #e2e8f0;
+  
+  /* Focus Ring */
+  --focus-ring: #3b82f6;
+  
+  /* Scrollbar */
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
+}
+
+/* ============================================
+   DARK MODE COLOR PALETTE
+   ============================================ */
+.dark {
+  /* Backgrounds */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-tertiary: #1a1a1a;
+  --card-background: #111111;
+  --header-background: rgba(17, 17, 17, 0.8);
+  
+  /* Text Colors */
+  --foreground: #ededed;
+  --foreground-secondary: #d4d4d4;
+  --foreground-muted: #a3a3a3;
+  --foreground-subtle: #737373;
+  
+  /* Borders */
+  --border: #262626;
+  --border-hover: #404040;
+  
+  /* Accent Colors */
+  --accent-primary: #60a5fa;
+  --accent-primary-hover: #3b82f6;
+  --accent-secondary: #a78bfa;
+  --accent-secondary-hover: #8b5cf6;
+  
+  /* Tag Colors */
+  --tag-default-bg: #262626;
+  --tag-default-text: #e5e5e5;
+  --tag-primary-bg: #1e3a8a;
+  --tag-primary-text: #93c5fd;
+  --tag-secondary-bg: #581c87;
+  --tag-secondary-text: #c4b5fd;
+  
+  /* Interactive States */
+  --hover-bg: #1a1a1a;
+  --hover-text: #ededed;
+  --active-bg: #262626;
+  
+  /* Focus Ring */
+  --focus-ring: #60a5fa;
+  
+  /* Scrollbar */
+  --scrollbar-thumb: #404040;
+  --scrollbar-thumb-hover: #525252;
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --background: #0a0a0a;
+    --background-secondary: #111111;
+    --background-tertiary: #1a1a1a;
+    --card-background: #111111;
+    --header-background: rgba(17, 17, 17, 0.8);
+    --foreground: #ededed;
+    --foreground-secondary: #d4d4d4;
+    --foreground-muted: #a3a3a3;
+    --foreground-subtle: #737373;
+    --border: #262626;
+    --border-hover: #404040;
+    --scrollbar-thumb: #404040;
+    --scrollbar-thumb-hover: #525252;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-persian: var(--font-iran-sans-x);
+  
+  /* Font families for Tailwind utilities */
+  --font-family-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-family-persian: var(--font-iran-sans-x), var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Default to Inter for English, will be overridden by locale-specific classes */
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Persian/Farsi locale uses IRANSansX */
+html[lang="fa"] body {
+  font-family: var(--font-iran-sans-x), var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* English locale uses Inter */
+html[lang="en"] body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* RTL Support Utilities */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* RTL-aware spacing utilities using CSS logical properties */
+@layer utilities {
+  .ms-1 { margin-inline-start: 0.25rem; }
+  .ms-2 { margin-inline-start: 0.5rem; }
+  .ms-3 { margin-inline-start: 0.75rem; }
+  .ms-4 { margin-inline-start: 1rem; }
+  .ms-6 { margin-inline-start: 1.5rem; }
+  .ms-8 { margin-inline-start: 2rem; }
+  
+  .me-1 { margin-inline-end: 0.25rem; }
+  .me-2 { margin-inline-end: 0.5rem; }
+  .me-3 { margin-inline-end: 0.75rem; }
+  .me-4 { margin-inline-end: 1rem; }
+  .me-6 { margin-inline-end: 1.5rem; }
+  .me-8 { margin-inline-end: 2rem; }
+  
+  .ps-1 { padding-inline-start: 0.25rem; }
+  .ps-2 { padding-inline-start: 0.5rem; }
+  .ps-3 { padding-inline-start: 0.75rem; }
+  .ps-4 { padding-inline-start: 1rem; }
+  .ps-6 { padding-inline-start: 1.5rem; }
+  
+  .pe-1 { padding-inline-end: 0.25rem; }
+  .pe-2 { padding-inline-end: 0.5rem; }
+  .pe-3 { padding-inline-end: 0.75rem; }
+  .pe-4 { padding-inline-end: 1rem; }
+  .pe-6 { padding-inline-end: 1.5rem; }
+  
+  .start-0 { inset-inline-start: 0; }
+  .start-\[15px\] { inset-inline-start: 15px; }
+  .start-\[19px\] { inset-inline-start: 19px; }
+  
+  .end-0 { inset-inline-end: 0; }
+  
+  .text-start { text-align: start; }
+  .text-end { text-align: end; }
+  
+  /* Font family utilities */
+  .font-persian {
+    font-family: var(--font-iran-sans-x), var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-english {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+}

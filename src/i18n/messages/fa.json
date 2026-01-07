@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "خانه",
+    "about": "درباره",
+    "experience": "تجربه",
+    "projects": "پروژه‌ها",
+    "contact": "تماس",
+    "resume": "رزومه"
+  },
+  "home": {
+    "title": "مهندس ارشد فول استک",
+    "subtitle": "بیش از ۱۴ سال تجربه در ساخت پلتفرم‌های وب و موبایل مقیاس‌پذیر با React، Next.js، Node.js و Python.",
+    "viewProjects": "مشاهده پروژه‌ها",
+    "contact": "تماس",
+    "coreCompetencies": "توانایی‌های کلیدی",
+    "coreCompetenciesSubtitle": "حوزه‌های تخصص و تمرکز",
+    "technicalSkills": "مهارت‌های فنی",
+    "technicalSkillsSubtitle": "فناوری‌ها و ابزارهایی که با آن‌ها کار می‌کنم",
+    "viewAllSkills": "مشاهده تمام مهارت‌ها",
+    "selectedWork": "کارهای منتخب",
+    "selectedWorkSubtitle": "پروژه‌ها و پلتفرم‌های برجسته",
+    "viewAllProjects": "مشاهده تمام پروژه‌ها",
+    "letsWorkTogether": "بیایید با هم کار کنیم",
+    "letsWorkTogetherSubtitle": "همیشه آماده بحث در مورد فرصت‌های جدید و پروژه‌های جالب هستم.",
+    "getInTouch": "تماس بگیرید"
+  },
+  "about": {
+    "title": "درباره من",
+    "bio": "بیوگرافی",
+    "coreCompetencies": "توانایی‌های کلیدی",
+    "technicalSkills": "مهارت‌های فنی",
+    "frontend": "فرانت‌اند",
+    "backend": "بک‌اند",
+    "infra": "زیرساخت و تحویل",
+    "languages": "زبان‌ها",
+    "emailLabel": "ایمیل",
+    "phoneLabel": "تلفن"
+  },
+  "experience": {
+    "title": "تجربه",
+    "subtitle": "بیش از ۱۴ سال تجربه در ساخت پلتفرم‌های مقیاس‌پذیر و آماده تولید",
+    "filterByTechnology": "فیلتر بر اساس فناوری",
+    "clearFilters": "پاک کردن فیلترها",
+    "noMatches": "هیچ تجربه‌ای با فیلترهای انتخاب شده مطابقت ندارد."
+  },
+  "projects": {
+    "title": "پروژه‌ها",
+    "subtitle": "انتخابی از پروژه‌ها و پلتفرم‌هایی که ساخته‌ام",
+    "showFeaturedOnly": "نمایش فقط پروژه‌های برجسته",
+    "filterByTechnology": "فیلتر بر اساس فناوری:",
+    "all": "همه",
+    "noMatches": "هیچ پروژه‌ای با فیلترهای انتخاب شده مطابقت ندارد.",
+    "featured": "برجسته"
+  },
+  "contact": {
+    "title": "تماس با من",
+    "subtitle": "همیشه آماده بحث در مورد فرصت‌های جدید و پروژه‌های جالب هستم",
+    "contactInformation": "اطلاعات تماس",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "social": "شبکه‌های اجتماعی",
+    "sendMessage": "ارسال پیام",
+    "name": "نام",
+    "subject": "موضوع",
+    "message": "پیام",
+    "send": "ارسال پیام",
+    "required": "*",
+    "thankYou": "از پیام شما متشکرم!",
+    "thankYouSubtitle": "کلاینت ایمیل پیش‌فرض شما باید باز شود. اگر باز نشد، لطفاً پیام خود را مستقیماً به {email} ارسال کنید.",
+    "nameRequired": "نام الزامی است",
+    "emailRequired": "ایمیل الزامی است",
+    "emailInvalid": "لطفاً یک آدرس ایمیل معتبر وارد کنید",
+    "subjectRequired": "موضوع الزامی است",
+    "messageRequired": "پیام الزامی است",
+    "messageMinLength": "پیام باید حداقل ۱۰ کاراکتر باشد"
+  },
+  "resume": {
+    "title": "رزومه",
+    "downloadPdf": "دانلود PDF",
+    "summary": "خلاصه",
+    "coreCompetencies": "توانایی‌های کلیدی",
+    "technicalSkills": "مهارت‌های فنی",
+    "experience": "تجربه",
+    "languages": "زبان‌ها",
+    "emailLabel": "ایمیل",
+    "phoneLabel": "تلفن",
+    "linksLabel": "لینک‌ها",
+    "frontend": "فرانت‌اند",
+    "backend": "بک‌اند",
+    "infra": "زیرساخت و تحویل"
+  },
+  "footer": {
+    "quickLinks": "لینک‌های سریع",
+    "connect": "ارتباط",
+    "rights": "تمام حقوق محفوظ است."
+  },
+  "profile": {
+    "name": "بصیر پچاز",
+    "title": "مهندس ارشد فول استک",
+    "summary": "مهندس ارشد فول استک با بیش از ۱۴ سال تجربه حرفه‌ای در ارائه پلتفرم‌های وب و موبایل مقیاس‌پذیر و آماده تولید. تخصص بالا در سیستم‌های فرانت‌اند و بک‌اند با تمرکز بر React، Next.js، Node.js و Python. توانایی اثبات شده در طراحی معماری‌های قوی، بهینه‌سازی عملکرد و حفظ پایداری در محیط‌های پرترافیک و حساس تجاری. با سابقه همکاری با تیم‌های جهانی در محصولات حیاتی.",
+    "coreCompetencies": [
+      "معماری فول استک",
+      "مهندسی فرانت‌اند",
+      "طراحی API",
+      "بهینه‌سازی عملکرد",
+      "پایداری تولید",
+      "مقیاس‌پذیری سیستم"
+    ],
+    "languages": [
+      { "name": "انگلیسی", "proficiency": "تسلط حرفه‌ای کاری" },
+      { "name": "فارسی", "proficiency": "زبان مادری" }
+    ]
+  }
+}

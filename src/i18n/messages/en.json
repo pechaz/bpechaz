@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "home": {
+    "title": "Senior Full Stack Engineer",
+    "subtitle": "14+ years building scalable web and mobile platforms with React, Next.js, Node.js, and Python.",
+    "viewProjects": "View Projects",
+    "contact": "Contact",
+    "coreCompetencies": "Core Competencies",
+    "coreCompetenciesSubtitle": "Areas of expertise and focus",
+    "technicalSkills": "Technical Skills",
+    "technicalSkillsSubtitle": "Technologies and tools I work with",
+    "viewAllSkills": "View all skills",
+    "selectedWork": "Selected Work",
+    "selectedWorkSubtitle": "Featured projects and platforms",
+    "viewAllProjects": "View All Projects",
+    "letsWorkTogether": "Let's Work Together",
+    "letsWorkTogetherSubtitle": "I'm always open to discussing new opportunities and interesting projects.",
+    "getInTouch": "Get In Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "Bio",
+    "coreCompetencies": "Core Competencies",
+    "technicalSkills": "Technical Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "infra": "Infrastructure & Delivery",
+    "languages": "Languages",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "14+ years of building scalable, production-grade platforms",
+    "filterByTechnology": "Filter by Technology",
+    "clearFilters": "Clear filters",
+    "noMatches": "No experience matches the selected filters."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of projects and platforms I've built",
+    "showFeaturedOnly": "Show featured only",
+    "filterByTechnology": "Filter by Technology:",
+    "all": "All",
+    "noMatches": "No projects match the selected filters.",
+    "featured": "Featured"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'm always open to discussing new opportunities and interesting projects",
+    "contactInformation": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "social": "Social",
+    "sendMessage": "Send a Message",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "required": "*",
+    "thankYou": "Thank you for your message!",
+    "thankYouSubtitle": "Your default email client should open. If it doesn't, please send your message to {email} directly.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "subjectRequired": "Subject is required",
+    "messageRequired": "Message is required",
+    "messageMinLength": "Message must be at least 10 characters"
+  },
+  "resume": {
+    "title": "Resume",
+    "downloadPdf": "Download PDF",
+    "summary": "Summary",
+    "coreCompetencies": "Core Competencies",
+    "technicalSkills": "Technical Skills",
+    "experience": "Experience",
+    "languages": "Languages",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "linksLabel": "Links",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "infra": "Infrastructure & Delivery"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "rights": "All rights reserved."
+  },
+  "profile": {
+    "name": "Bassir Pechaz",
+    "title": "Senior Full Stack Engineer",
+    "summary": "Senior Full Stack Engineer with over 14 years of professional experience delivering scalable, production-grade web and mobile platforms. Strong expertise across frontend and backend systems with a focus on React, Next.js, Node.js, and Python. Proven ability to design robust architectures, optimize performance, and maintain stability in high-traffic, business-critical environments. Experienced working with remote, Global teams on mission-critical products.",
+    "coreCompetencies": [
+      "Full Stack Architecture",
+      "Front-End Engineering",
+      "API Design",
+      "Performance Optimization",
+      "Production Stability",
+      "System Scalability"
+    ],
+    "languages": [
+      { "name": "English", "proficiency": "Professional Working Proficiency" },
+      { "name": "Persian", "proficiency": "Native" }
+    ]
+  }
+}
