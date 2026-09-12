@@ -8,20 +8,23 @@
     "resume": "Resume"
   },
   "home": {
-    "title": "Senior Full Stack Engineer",
-    "subtitle": "14+ years building scalable web and mobile platforms with React, Next.js, Node.js, and Python.",
-    "viewProjects": "View Projects",
+    "title": "Senior Full-Stack Engineer",
+    "subtitle": "14+ years shipping and operating production web, mobile and platform systems — React, React Native, Kafka on Kubernetes, and the CI/CD that keeps them running.",
+    "availableWorldwide": "Remote — available worldwide",
+    "viewProjects": "Selected Work",
     "contact": "Contact",
+    "downloadResume": "Download Resume",
     "coreCompetencies": "Core Competencies",
-    "coreCompetenciesSubtitle": "Areas of expertise and focus",
+    "coreCompetenciesSubtitle": "Where ownership and impact concentrate",
     "technicalSkills": "Technical Skills",
-    "technicalSkillsSubtitle": "Technologies and tools I work with",
+    "technicalSkillsSubtitle": "A focused stack from recent production work",
     "viewAllSkills": "View all skills",
     "selectedWork": "Selected Work",
-    "selectedWorkSubtitle": "Featured projects and platforms",
+    "selectedWorkSubtitle": "Platforms a hiring manager can ask about tomorrow",
     "viewAllProjects": "View All Projects",
+    "viewSite": "Visit site",
     "letsWorkTogether": "Let's Work Together",
-    "letsWorkTogetherSubtitle": "I'm always open to discussing new opportunities and interesting projects.",
+    "letsWorkTogetherSubtitle": "Open to senior full-stack, platform, and SRE-leaning roles with remote teams.",
     "getInTouch": "Get In Touch"
   },
   "about": {
@@ -30,43 +33,58 @@
     "coreCompetencies": "Core Competencies",
     "technicalSkills": "Technical Skills",
     "frontend": "Frontend",
+    "stateAndApis": "State & APIs",
     "backend": "Backend",
-    "infra": "Infrastructure & Delivery",
+    "data": "Data",
+    "infra": "Cloud & Reliability",
     "languages": "Languages",
     "emailLabel": "Email",
-    "phoneLabel": "Phone"
+    "phoneLabel": "Phone",
+    "locationLabel": "Location"
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "14+ years of building scalable, production-grade platforms",
+    "subtitle": "14+ years of production systems — newest first",
     "filterByTechnology": "Filter by Technology",
+    "showMore": "Show more",
+    "showLess": "Show less",
     "clearFilters": "Clear filters",
-    "noMatches": "No experience matches the selected filters."
+    "noMatches": "No experience matches the selected filters.",
+    "current": "Current"
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "A selection of projects and platforms I've built",
+    "subtitle": "Featured platforms first, then selected independent work",
     "showFeaturedOnly": "Show featured only",
-    "filterByTechnology": "Filter by Technology:",
+    "filterByTechnology": "Filter by Technology",
     "all": "All",
     "noMatches": "No projects match the selected filters.",
-    "featured": "Featured"
+    "featured": "Featured",
+    "viewSite": "Visit site"
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "I'm always open to discussing new opportunities and interesting projects",
+    "subtitle": "Open to discussing senior full-stack, platform, and reliability-focused roles",
     "contactInformation": "Contact Information",
     "email": "Email",
     "phone": "Phone",
     "social": "Social",
+    "copy": "Copy",
+    "copied": "Copied",
     "sendMessage": "Send a Message",
     "name": "Name",
     "subject": "Subject",
+    "subjectPresets": {
+      "role": "Role opportunity",
+      "project": "Project inquiry",
+      "other": "Other"
+    },
     "message": "Message",
-    "send": "Send Message",
+    "send": "Open email client",
     "required": "*",
-    "thankYou": "Thank you for your message!",
-    "thankYouSubtitle": "Your default email client should open. If it doesn't, please send your message to {email} directly.",
+    "thankYou": "Ready to send",
+    "thankYouSubtitle": "Your email client should open with this message. If it doesn't, write to {email} directly.",
+    "sendAnother": "Compose another",
     "nameRequired": "Name is required",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
@@ -86,29 +104,154 @@
     "phoneLabel": "Phone",
     "linksLabel": "Links",
     "frontend": "Frontend",
+    "stateAndApis": "State & APIs",
     "backend": "Backend",
-    "infra": "Infrastructure & Delivery"
+    "data": "Data",
+    "infra": "Cloud & Reliability"
   },
   "footer": {
     "quickLinks": "Quick Links",
     "connect": "Connect",
+    "email": "Email",
     "rights": "All rights reserved."
   },
   "profile": {
     "name": "Bassir Pechaz",
-    "title": "Senior Full Stack Engineer",
-    "summary": "Senior Full Stack Engineer with over 14 years of professional experience delivering scalable, production-grade web and mobile platforms. Strong expertise across frontend and backend systems with a focus on React, Next.js, Node.js, and Python. Proven ability to design robust architectures, optimize performance, and maintain stability in high-traffic, business-critical environments. Experienced working with remote, Global teams on mission-critical products.",
+    "title": "Senior Full-Stack Engineer",
+    "location": "Remote — available worldwide",
+    "summary": "Full-stack engineer with 14+ years shipping and operating production web, mobile and platform systems. Recent work spans the whole path: React and React Native clients, Python, Go and Node services, Kafka pipelines on Kubernetes, and the CI/CD and observability that keep them running. Used to being the person who follows a failure from the UI down to the broker, in remote and distributed teams.",
     "coreCompetencies": [
-      "Full Stack Architecture",
-      "Front-End Engineering",
-      "API Design",
-      "Performance Optimization",
-      "Production Stability",
-      "System Scalability"
+      "Production Systems / SRE",
+      "Full-Stack Architecture",
+      "React + React Native",
+      "Event-Driven Delivery",
+      "CI/CD & Observability",
+      "Incident Response"
     ],
     "languages": [
       { "name": "English", "proficiency": "Professional Working Proficiency" },
       { "name": "Persian", "proficiency": "Native" }
-    ]
+    ],
+    "experience": {
+      "netbina": {
+        "company": "Netbina",
+        "role": "Senior Full-Stack / Site Reliability Engineer",
+        "period": "2026 – Present",
+        "location": "Remote",
+        "description": [
+          "Operate Telescope end to end: social and marketplace ingest, Kafka enrichment workers for category, sentiment, topic and near-duplicate detection, PostgreSQL and Elasticsearch storage, a Laravel API and a React panel — a production microservice platform on Kubernetes.",
+          "Replaced tag-based manual releases with branch-driven GitLab CI/CD: a push to master builds a commit-SHA image, pushes it to the private registry and rolls the live Kubernetes Deployment.",
+          "Hardened the ingest and enrichment path against stalls with explicit HTTP timeouts, bounded retries, batched Kafka-to-service writes and raised worker replicas.",
+          "Built a Go reverse proxy for Google Gemini that fronts every AI call: shared-token authentication, sticky API-key rotation on HTTP 429, and IP/domain allowlists, deployed with Docker Compose behind Traefik.",
+          "Built the operator-facing health and superadmin surfaces in React so ingest gaps and content-kind problems are visible before a customer reports them.",
+          "Led the response to a priority-1 outage where self-hosted Git returned 404 on every route after a host Docker upgrade broke the reverse-proxy provider: restored routing with a file-based configuration, brought CI runners back online, and wrote the incident report.",
+          "Automated SeePlayShow delivery with GitHub Actions: Django releases to AWS Elastic Beanstalk and Node WebSocket releases to EC2 over rsync and PM2 behind a shared load balancer."
+        ]
+      },
+      "faradars": {
+        "company": "FaraDars",
+        "role": "React Native / Full-Stack Engineer",
+        "period": "2024 – 2026",
+        "location": "Remote",
+        "description": [
+          "Shipped the FaraDars learning app through release 2.1.20 on React Native 0.86 and React 19 with TypeScript: course discovery and search, video lessons, downloads and progress tracking.",
+          "Worked against a shared design system delivered as a versioned private npm package, keeping every screen on one component, theming and typography contract.",
+          "Built the offline and caching layer with SWR and MMKV so catalogue data and lesson progress survive dropped connections, backgrounding and app restarts.",
+          "Integrated video playback with progress analytics, in-app purchases, push messaging and Google Sign-In, and tuned list virtualisation for long study sessions.",
+          "Delivered urgent fixes without waiting for store review using CodePush over-the-air updates, with Sentry for crash and regression monitoring."
+        ]
+      },
+      "bitpin": {
+        "company": "Bitpin",
+        "role": "Full-Stack Engineer",
+        "period": "2022 – 2024",
+        "location": "Remote",
+        "description": [
+          "Built and maintained the React interfaces and Python services used to run trading, payments and back-office operations across four products: bitpin.ir, Paymoon, Siba and Chortke.",
+          "Kept high-churn market, order and balance screens correct under constant updates using React Query and Redux, where a stale render has a financial cost.",
+          "Delivered Python services and APIs behind trading and administrative workflows, covering authentication, business rules and operational reporting.",
+          "Diagnosed and fixed production incidents on a money-moving platform, following faults across the API and UI boundary rather than patching the symptom."
+        ]
+      },
+      "sinansoft": {
+        "company": "SinanSoft",
+        "role": "Full-Stack Engineer (contract)",
+        "period": "2018 – Present",
+        "location": "Remote, part-time",
+        "description": [
+          "Build and maintain the CIP / UniVoIP telecom operator portal, now at release v5.53: React with Material UI and MUI X Premium data grids, Keycloak single sign-on, embedded Cube.js and Superset analytics, live updates over STOMP, and Sentry release tracking.",
+          "Deliver the subscription side of the same platform as event-driven Kafka workflows: phone-number provisioning and porting, Microsoft Teams onboarding, billing reconciliation and fax services.",
+          "Delivered a portfolio of Next.js and React products: sinansoft.com, the SJI catalogue and admin console, LoanThem loan-management PWA, Centralive admin, and AIOP site and admin on Next.js with Tailwind CSS 4, Material UI and React Query.",
+          "Built Know Yourself as a Django backend with a React Native client, owning both sides of the API contract."
+        ]
+      },
+      "arvand-avid": {
+        "company": "Arvand Avid",
+        "role": "Full-Stack Engineer",
+        "period": "2017 – 2018",
+        "location": "Remote",
+        "description": [
+          "Built NestJS and GraphQL (Apollo) APIs with Redis caching behind three products: Lernito, the Iknito scientific-journal workflow manager and the Troweb headless CMS.",
+          "Built the Next.js frontends for the same products with React Query, Material UI and Emotion, all querying one GraphQL surface."
+        ]
+      },
+      "greenweb": {
+        "company": "Greenweb",
+        "role": "Full-Stack Engineer",
+        "period": "2011 – 2017",
+        "location": "Remote",
+        "description": [
+          "Built and ran Chapiroos, a print-production, staffing and order-management system used daily by operations staff (PHP and MySQL, later React), and web systems for the hosting provider IranServer."
+        ]
+      }
+    },
+    "projects": {
+      "telescope": {
+        "name": "Telescope",
+        "description": "Social-listening platform: ingest → Kafka enrichment → Elasticsearch → React operator panel on Kubernetes.",
+        "company": "Netbina",
+        "period": "2026 – Present"
+      },
+      "seeplayshow": {
+        "name": "SeePlayShow",
+        "description": "Live show-control product: Django API, Node WebSockets, web live panel and AWS delivery across staging and production.",
+        "company": "Netbina",
+        "period": "2026 – Present"
+      },
+      "faradars": {
+        "name": "FaraDars",
+        "description": "React Native learning app (release 2.1.20): catalogue, video lessons, offline progress, IAP and OTA updates.",
+        "company": "FaraDars",
+        "period": "2024 – 2026"
+      },
+      "cip-univoip": {
+        "name": "CIP / UniVoIP",
+        "description": "Telecom operator portal and Kafka subscription workflows: numbering, Teams onboarding, billing sync and analytics.",
+        "company": "SinanSoft",
+        "period": "2018 – Present"
+      },
+      "bitpin-exchange": {
+        "name": "Bitpin Exchange",
+        "description": "Cryptocurrency exchange, crypto shop and operations panels for trading and back-office workflows.",
+        "company": "Bitpin",
+        "period": "2022 – 2024"
+      },
+      "faranama": {
+        "name": "Faranama",
+        "description": "Django, PostgreSQL and React admin — full-stack build."
+      },
+      "dealertouch": {
+        "name": "Dealertouch",
+        "description": "React and shadcn/ui admin plus a React Native app on GraphQL and Redux Toolkit."
+      },
+      "kimdishop": {
+        "name": "KimdiShop",
+        "description": "Next.js and Tailwind CSS storefront with a PrimeReact admin console."
+      },
+      "neowshop": {
+        "name": "Neowshop",
+        "description": "React Native client on Google Cloud services."
+      }
+    }
   }
 }

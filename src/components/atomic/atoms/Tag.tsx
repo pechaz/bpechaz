@@ -1,24 +1,24 @@
 interface TagProps {
   children: React.ReactNode;
   className?: string;
-  variant?: 'default' | 'primary' | 'secondary';
+  variant?: "default" | "primary" | "secondary";
 }
 
 export function Tag({
   children,
-  className = '',
-  variant = 'default',
+  className = "",
+  variant = "default",
 }: TagProps) {
   const baseStyles =
-    'inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium transition-colors';
-  
+    "inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium";
+
   const variants = {
     default:
-      'bg-slate-100 text-slate-900 dark:bg-gray-800 dark:text-gray-200',
+      "bg-[var(--tag-default-bg)] text-[var(--tag-default-text)]",
     primary:
-      'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-200',
+      "bg-[var(--tag-primary-bg)] text-[var(--tag-primary-text)]",
     secondary:
-      'bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-200',
+      "bg-[var(--tag-secondary-bg)] text-[var(--tag-secondary-text)]",
   };
 
   return (
@@ -27,4 +27,3 @@ export function Tag({
     </span>
   );
 }
-

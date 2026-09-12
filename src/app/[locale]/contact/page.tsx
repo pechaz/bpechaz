@@ -5,7 +5,10 @@ import { useTranslations } from "next-intl";
 
 import { profile } from "@/config/profile";
 import { Card } from "@/components/atomic/atoms/Card";
+import { Button } from "@/components/atomic/atoms/Button";
 import { SectionHeading } from "@/components/atomic/atoms/SectionHeading";
+
+type SubjectPreset = "role" | "project" | "other";
 
 export default function Contact() {
   const t = useTranslations("contact");
@@ -15,8 +18,12 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [preset, setPreset] = useState<SubjectPreset | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [copiedField, setCopiedField] = useState<"email" | "phone" | null>(
+    null
+  );
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -52,7 +59,6 @@ export default function Contact() {
       return;
     }
 
-    // Generate mailto link as fallback
     const subject = encodeURIComponent(formData.subject);
     const body = encodeURIComponent(
       `${t("name")}: ${formData.name}\n${t("email")}: ${formData.email}\n\n${t(
@@ -61,7 +67,6 @@ export default function Contact() {
     );
     const mailtoLink = `mailto:${profile.email}?subject=${subject}&body=${body}`;
 
-    // Open mailto link
     window.location.href = mailtoLink;
     setSubmitted(true);
   };
@@ -71,48 +76,91 @@ export default function Contact() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
+    if (name === "subject") setPreset(null);
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
+
+  const applyPreset = (key: SubjectPreset) => {
+    const label = t(`subjectPresets.${key}`);
+    setPreset(key);
+    setFormData((prev) => ({ ...prev, subject: label }));
+    if (errors.subject) {
+      setErrors((prev) => ({ ...prev, subject: "" }));
+    }
+  };
+
+  const copyValue = async (field: "email" | "phone", value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch {
+      // Clipboard may be unavailable; ignore.
+    }
+  };
+
+  const inputClass = (hasError: boolean) =>
+    `mt-1 block w-full rounded-lg border-2 bg-[var(--card-background)] px-3 py-2.5 text-[var(--foreground)] shadow-sm focus:outline-none focus:ring-2 ${
+      hasError
+        ? "border-[var(--danger-text)] focus:border-[var(--danger-text)] focus:ring-[var(--danger-text)]"
+        : "border-[var(--border)] focus:border-[var(--accent-primary)] focus:ring-[var(--focus-ring)]"
+    }`;
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
       <div className="grid gap-8 md:grid-cols-2">
-        {/* Contact Information */}
         <div className="space-y-6">
           <Card>
-            <h3 className="mb-4 text-xl font-semibold text-black dark:text-gray-100">
+            <h3 className="mb-4 text-xl font-semibold text-[var(--foreground)]">
               {t("contactInformation")}
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div>
-                <h4 className="text-sm font-medium text-slate-600 dark:text-gray-400">
+                <h4 className="text-sm font-medium text-[var(--foreground-subtle)]">
                   {t("email")}
                 </h4>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="text-black transition-colors hover:text-slate-700 dark:text-gray-100 dark:hover:text-gray-300"
-                >
-                  {profile.email}
-                </a>
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="text-[var(--foreground)] transition-colors hover:text-[var(--accent-primary)]"
+                  >
+                    {profile.email}
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => copyValue("email", profile.email)}
+                    className="rounded-md px-2 py-1 text-xs font-medium text-[var(--accent-primary)] hover:bg-[var(--hover-bg)]"
+                  >
+                    {copiedField === "email" ? t("copied") : t("copy")}
+                  </button>
+                </div>
               </div>
               <div>
-                <h4 className="text-sm font-medium text-slate-600 dark:text-gray-400">
+                <h4 className="text-sm font-medium text-[var(--foreground-subtle)]">
                   {t("phone")}
                 </h4>
-                <a
-                  href={`tel:${profile.phone}`}
-                  className="text-black transition-colors hover:text-slate-700 dark:text-gray-100 dark:hover:text-gray-300"
-                >
-                  {profile.phone}
-                </a>
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <a
+                    href={`tel:${profile.phone}`}
+                    className="text-[var(--foreground)] transition-colors hover:text-[var(--accent-primary)]"
+                  >
+                    {profile.phone}
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => copyValue("phone", profile.phone)}
+                    className="rounded-md px-2 py-1 text-xs font-medium text-[var(--accent-primary)] hover:bg-[var(--hover-bg)]"
+                  >
+                    {copiedField === "phone" ? t("copied") : t("copy")}
+                  </button>
+                </div>
               </div>
               <div>
-                <h4 className="mb-2 text-sm font-medium text-slate-600 dark:text-gray-400">
+                <h4 className="mb-2 text-sm font-medium text-[var(--foreground-subtle)]">
                   {t("social")}
                 </h4>
                 <div className="space-y-2">
@@ -122,7 +170,7 @@ export default function Contact() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-black transition-colors hover:text-slate-700 dark:text-gray-100 dark:hover:text-gray-300"
+                      className="block text-[var(--foreground)] transition-colors hover:text-[var(--accent-primary)]"
                     >
                       {link.name}{" "}
                       <span className="inline-block rtl:rotate-180">→</span>
@@ -134,28 +182,37 @@ export default function Contact() {
           </Card>
         </div>
 
-        {/* Contact Form */}
         <div>
           <Card>
-            <h3 className="mb-6 text-xl font-semibold text-black dark:text-gray-100">
+            <h3 className="mb-6 text-xl font-semibold text-[var(--foreground)]">
               {t("sendMessage")}
             </h3>
             {submitted ? (
-              <div className="rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-200">
+              <div className="rounded-lg bg-[var(--success-bg)] p-4 text-[var(--success-text)]">
                 <p className="font-medium">{t("thankYou")}</p>
                 <p className="mt-2 text-sm">
                   {t("thankYouSubtitle", { email: profile.email })}
                 </p>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="mt-4"
+                  onClick={() => setSubmitted(false)}
+                >
+                  {t("sendAnother")}
+                </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-black dark:text-gray-100"
+                    className="block text-sm font-medium text-[var(--foreground)]"
                   >
                     {t("name")}{" "}
-                    <span className="text-red-500">{t("required")}</span>
+                    <span className="text-[var(--danger-text)]">
+                      {t("required")}
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -163,18 +220,14 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`mt-1 block w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-black shadow-sm focus:outline-none focus:ring-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 ${
-                      errors.name
-                        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                        : "focus:border-slate-500 focus:ring-slate-500 dark:focus:border-gray-500 dark:focus:ring-gray-500"
-                    }`}
+                    className={inputClass(!!errors.name)}
                     aria-invalid={errors.name ? "true" : "false"}
                     aria-describedby={errors.name ? "name-error" : undefined}
                   />
                   {errors.name && (
                     <p
                       id="name-error"
-                      className="mt-1 text-sm text-red-600 dark:text-red-400"
+                      className="mt-1 text-sm text-[var(--danger-text)]"
                     >
                       {errors.name}
                     </p>
@@ -184,10 +237,12 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-black dark:text-gray-100"
+                    className="block text-sm font-medium text-[var(--foreground)]"
                   >
                     {t("email")}{" "}
-                    <span className="text-red-500">{t("required")}</span>
+                    <span className="text-[var(--danger-text)]">
+                      {t("required")}
+                    </span>
                   </label>
                   <input
                     type="email"
@@ -195,18 +250,14 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`mt-1 block w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-black shadow-sm focus:outline-none focus:ring-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 ${
-                      errors.email
-                        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                        : "focus:border-slate-500 focus:ring-slate-500 dark:focus:border-gray-500 dark:focus:ring-gray-500"
-                    }`}
+                    className={inputClass(!!errors.email)}
                     aria-invalid={errors.email ? "true" : "false"}
                     aria-describedby={errors.email ? "email-error" : undefined}
                   />
                   {errors.email && (
                     <p
                       id="email-error"
-                      className="mt-1 text-sm text-red-600 dark:text-red-400"
+                      className="mt-1 text-sm text-[var(--danger-text)]"
                     >
                       {errors.email}
                     </p>
@@ -216,22 +267,38 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-black dark:text-gray-100"
+                    className="block text-sm font-medium text-[var(--foreground)]"
                   >
                     {t("subject")}{" "}
-                    <span className="text-red-500">{t("required")}</span>
+                    <span className="text-[var(--danger-text)]">
+                      {t("required")}
+                    </span>
                   </label>
+                  <div className="mt-2 mb-2 flex flex-wrap gap-2">
+                    {(
+                      ["role", "project", "other"] as const
+                    ).map((key) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => applyPreset(key)}
+                        className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                          preset === key
+                            ? "bg-[var(--accent-primary)] text-[var(--accent-primary-foreground)]"
+                            : "bg-[var(--tag-default-bg)] text-[var(--tag-default-text)] hover:bg-[var(--active-bg)]"
+                        }`}
+                      >
+                        {t(`subjectPresets.${key}`)}
+                      </button>
+                    ))}
+                  </div>
                   <input
                     type="text"
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className={`mt-1 block w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-black shadow-sm focus:outline-none focus:ring-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 ${
-                      errors.subject
-                        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                        : "focus:border-slate-500 focus:ring-slate-500 dark:focus:border-gray-500 dark:focus:ring-gray-500"
-                    }`}
+                    className={inputClass(!!errors.subject)}
                     aria-invalid={errors.subject ? "true" : "false"}
                     aria-describedby={
                       errors.subject ? "subject-error" : undefined
@@ -240,7 +307,7 @@ export default function Contact() {
                   {errors.subject && (
                     <p
                       id="subject-error"
-                      className="mt-1 text-sm text-red-600 dark:text-red-400"
+                      className="mt-1 text-sm text-[var(--danger-text)]"
                     >
                       {errors.subject}
                     </p>
@@ -250,10 +317,12 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-black dark:text-gray-100"
+                    className="block text-sm font-medium text-[var(--foreground)]"
                   >
                     {t("message")}{" "}
-                    <span className="text-red-500">{t("required")}</span>
+                    <span className="text-[var(--danger-text)]">
+                      {t("required")}
+                    </span>
                   </label>
                   <textarea
                     id="message"
@@ -261,11 +330,7 @@ export default function Contact() {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`mt-1 block w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-black shadow-sm focus:outline-none focus:ring-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 ${
-                      errors.message
-                        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                        : "focus:border-slate-500 focus:ring-slate-500 dark:focus:border-gray-500 dark:focus:ring-gray-500"
-                    }`}
+                    className={inputClass(!!errors.message)}
                     aria-invalid={errors.message ? "true" : "false"}
                     aria-describedby={
                       errors.message ? "message-error" : undefined
@@ -274,19 +339,16 @@ export default function Contact() {
                   {errors.message && (
                     <p
                       id="message-error"
-                      className="mt-1 text-sm text-red-600 dark:text-red-400"
+                      className="mt-1 text-sm text-[var(--danger-text)]"
                     >
                       {errors.message}
                     </p>
                   )}
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-gray-900 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200"
-                >
+                <Button type="submit" className="w-full">
                   {t("send")}
-                </button>
+                </Button>
               </form>
             )}
           </Card>

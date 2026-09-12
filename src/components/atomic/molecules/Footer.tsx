@@ -13,60 +13,47 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+    <footer className="border-t border-[var(--border)] bg-[var(--background-secondary)]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-slate-900 dark:text-gray-100">
+            <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
               {tp("name")}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-gray-400">
+            <p className="text-sm text-[var(--foreground-muted)]">
               {tp("title")}
+            </p>
+            <p className="mt-2 text-sm text-[var(--foreground-subtle)]">
+              {tp("location")}
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-slate-900 dark:text-gray-100">
+            <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
               {t("quickLinks")}
             </h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href={`/${locale}/about`}
-                  className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
-                >
-                  {tNav("about")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/experience`}
-                  className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
-                >
-                  {tNav("experience")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/projects`}
-                  className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
-                >
-                  {tNav("projects")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
-                >
-                  {tNav("contact")}
-                </Link>
-              </li>
+              {[
+                { href: `/${locale}/about`, label: tNav("about") },
+                { href: `/${locale}/experience`, label: tNav("experience") },
+                { href: `/${locale}/projects`, label: tNav("projects") },
+                { href: `/${locale}/contact`, label: tNav("contact") },
+                { href: `/${locale}/resume`, label: tNav("resume") },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[var(--foreground-muted)] transition-colors hover:text-[var(--accent-primary)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-slate-900 dark:text-gray-100">
+            <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
               {t("connect")}
             </h3>
             <ul className="space-y-2">
@@ -76,7 +63,7 @@ export function Footer() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
+                    className="text-sm text-[var(--foreground-muted)] transition-colors hover:text-[var(--accent-primary)]"
                   >
                     {link.name}
                   </a>
@@ -85,17 +72,17 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
+                  className="text-sm text-[var(--foreground-muted)] transition-colors hover:text-[var(--accent-primary)]"
                 >
-                  Email
+                  {t("email")}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-200 pt-8 dark:border-gray-800">
-          <p className="text-center text-sm text-slate-600 dark:text-gray-400">
+        <div className="mt-10 border-t border-[var(--border)] pt-6">
+          <p className="text-center text-sm text-[var(--foreground-subtle)]">
             © {currentYear} {tp("name")}. {t("rights")}
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
@@ -13,9 +13,19 @@ export function Header() {
   const locale = useLocale();
   const t = useTranslations("nav");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
+
+  // Close the mobile menu when the route changes (React-recommended
+  // "adjust state when props change" pattern — not an effect).
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }
 
   const navItems = [
-    { href: `/${locale}`, label: t("home") },
+    { href: `/${locale}`, label: t("home"), exact: true },
     { href: `/${locale}/about`, label: t("about") },
     { href: `/${locale}/experience`, label: t("experience") },
     { href: `/${locale}/projects`, label: t("projects") },
@@ -23,47 +33,59 @@ export function Header() {
     { href: `/${locale}/resume`, label: t("resume") },
   ];
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileMenuOpen]);
+
+  const isActive = (href: string, exact?: boolean) => {
+    if (exact) return pathname === href;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--header-background)] backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}`}
-          className="text-xl font-bold text-slate-900 transition-colors hover:text-slate-700 dark:text-gray-100 dark:hover:text-gray-300"
+          className="text-lg font-bold tracking-tight text-[var(--foreground)] transition-colors hover:text-[var(--accent-primary)]"
         >
           Bassir Pechaz
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href === `/${locale}` && pathname === `/${locale}`);
+            const active = isActive(item.href, item.exact);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-slate-900 dark:text-gray-100"
-                    : "text-slate-600 hover:text-slate-900 dark:text-gray-400 dark:hover:text-gray-100"
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  active
+                    ? "bg-[var(--accent-primary-muted)] text-[var(--accent-primary)]"
+                    : "text-[var(--foreground-muted)] hover:bg-[var(--hover-bg)] hover:text-[var(--foreground)]"
                 }`}
               >
                 {item.label}
               </Link>
             );
           })}
-          <LanguageSwitcher />
-          <ThemeToggle />
+          <div className="ms-2 flex items-center gap-1 border-s border-[var(--border)] ps-3">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <LanguageSwitcher />
           <ThemeToggle />
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-[var(--foreground)] transition-colors hover:bg-[var(--hover-bg)]"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
             type="button"
@@ -71,8 +93,8 @@ export function Header() {
             {mobileMenuOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -86,8 +108,8 @@ export function Header() {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -104,30 +126,30 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="border-t border-slate-200 dark:border-gray-800 md:hidden">
-          <div className="space-y-1 px-4 pb-4 pt-2">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                    isActive
-                      ? "bg-slate-100 text-slate-900 dark:bg-gray-800 dark:text-gray-100"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
+      <div
+        className={`border-t border-[var(--border)] bg-[var(--card-background)] md:hidden ${
+          mobileMenuOpen ? "block" : "hidden"
+        }`}
+      >
+        <div className="space-y-1 px-3 py-3">
+          {navItems.map((item) => {
+            const active = isActive(item.href, item.exact);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                  active
+                    ? "bg-[var(--accent-primary-muted)] text-[var(--accent-primary)]"
+                    : "text-[var(--foreground-muted)] hover:bg-[var(--hover-bg)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
-      )}
+      </div>
     </header>
   );
 }

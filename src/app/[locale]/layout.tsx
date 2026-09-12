@@ -35,13 +35,17 @@ export async function generateMetadata({
     },
     description: summary,
     keywords: [
-      "Full Stack Engineer",
+      "Senior Full-Stack Engineer",
+      "Site Reliability",
       "React",
+      "React Native",
       "Next.js",
       "Node.js",
       "Python",
+      "Go",
       "TypeScript",
-      "Web Development",
+      "Kubernetes",
+      "Kafka",
       "Software Engineer",
     ],
     authors: [{ name }],
@@ -93,7 +97,7 @@ export default async function RootLayout({
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as (typeof locales)[number])) {
     notFound();
   }
 

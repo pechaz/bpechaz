@@ -8,20 +8,23 @@
     "resume": "رزومه"
   },
   "home": {
-    "title": "مهندس ارشد فول استک",
-    "subtitle": "بیش از ۱۴ سال تجربه در ساخت پلتفرم‌های وب و موبایل مقیاس‌پذیر با React، Next.js، Node.js و Python.",
-    "viewProjects": "مشاهده پروژه‌ها",
+    "title": "مهندس ارشد فول‌استک",
+    "subtitle": "بیش از ۱۴ سال ساخت و بهره‌برداری از سیستم‌های وب، موبایل و پلتفرم تولیدی — React، React Native، Kafka روی Kubernetes و CI/CD که آن‌ها را پایدار نگه می‌دارد.",
+    "availableWorldwide": "ریموت — در دسترس در سراسر جهان",
+    "viewProjects": "کارهای منتخب",
     "contact": "تماس",
+    "downloadResume": "دانلود رزومه",
     "coreCompetencies": "توانایی‌های کلیدی",
-    "coreCompetenciesSubtitle": "حوزه‌های تخصص و تمرکز",
+    "coreCompetenciesSubtitle": "جایی که مالکیت و اثرگذاری متمرکز است",
     "technicalSkills": "مهارت‌های فنی",
-    "technicalSkillsSubtitle": "فناوری‌ها و ابزارهایی که با آن‌ها کار می‌کنم",
+    "technicalSkillsSubtitle": "استک متمرکز از کارهای تولیدی اخیر",
     "viewAllSkills": "مشاهده تمام مهارت‌ها",
     "selectedWork": "کارهای منتخب",
-    "selectedWorkSubtitle": "پروژه‌ها و پلتفرم‌های برجسته",
+    "selectedWorkSubtitle": "پلتفرم‌هایی که می‌توان فردا درباره‌شان مصاحبه کرد",
     "viewAllProjects": "مشاهده تمام پروژه‌ها",
+    "viewSite": "مشاهده سایت",
     "letsWorkTogether": "بیایید با هم کار کنیم",
-    "letsWorkTogetherSubtitle": "همیشه آماده بحث در مورد فرصت‌های جدید و پروژه‌های جالب هستم.",
+    "letsWorkTogetherSubtitle": "آماده نقش‌های ارشد فول‌استک، پلتفرم و نزدیک به SRE با تیم‌های ریموت.",
     "getInTouch": "تماس بگیرید"
   },
   "about": {
@@ -30,43 +33,58 @@
     "coreCompetencies": "توانایی‌های کلیدی",
     "technicalSkills": "مهارت‌های فنی",
     "frontend": "فرانت‌اند",
+    "stateAndApis": "حالت و API",
     "backend": "بک‌اند",
-    "infra": "زیرساخت و تحویل",
+    "data": "داده",
+    "infra": "ابری و قابلیت اطمینان",
     "languages": "زبان‌ها",
     "emailLabel": "ایمیل",
-    "phoneLabel": "تلفن"
+    "phoneLabel": "تلفن",
+    "locationLabel": "موقعیت"
   },
   "experience": {
     "title": "تجربه",
-    "subtitle": "بیش از ۱۴ سال تجربه در ساخت پلتفرم‌های مقیاس‌پذیر و آماده تولید",
+    "subtitle": "بیش از ۱۴ سال سیستم‌های تولیدی — از جدید به قدیم",
     "filterByTechnology": "فیلتر بر اساس فناوری",
+    "showMore": "نمایش بیشتر",
+    "showLess": "نمایش کمتر",
     "clearFilters": "پاک کردن فیلترها",
-    "noMatches": "هیچ تجربه‌ای با فیلترهای انتخاب شده مطابقت ندارد."
+    "noMatches": "هیچ تجربه‌ای با فیلترهای انتخاب‌شده مطابقت ندارد.",
+    "current": "فعلی"
   },
   "projects": {
     "title": "پروژه‌ها",
-    "subtitle": "انتخابی از پروژه‌ها و پلتفرم‌هایی که ساخته‌ام",
+    "subtitle": "ابتدا پلتفرم‌های برجسته، سپس کارهای مستقل منتخب",
     "showFeaturedOnly": "نمایش فقط پروژه‌های برجسته",
-    "filterByTechnology": "فیلتر بر اساس فناوری:",
+    "filterByTechnology": "فیلتر بر اساس فناوری",
     "all": "همه",
-    "noMatches": "هیچ پروژه‌ای با فیلترهای انتخاب شده مطابقت ندارد.",
-    "featured": "برجسته"
+    "noMatches": "هیچ پروژه‌ای با فیلترهای انتخاب‌شده مطابقت ندارد.",
+    "featured": "برجسته",
+    "viewSite": "مشاهده سایت"
   },
   "contact": {
     "title": "تماس با من",
-    "subtitle": "همیشه آماده بحث در مورد فرصت‌های جدید و پروژه‌های جالب هستم",
+    "subtitle": "آماده گفت‌وگو درباره نقش‌های ارشد فول‌استک، پلتفرم و تمرکز بر قابلیت اطمینان",
     "contactInformation": "اطلاعات تماس",
     "email": "ایمیل",
     "phone": "تلفن",
     "social": "شبکه‌های اجتماعی",
+    "copy": "کپی",
+    "copied": "کپی شد",
     "sendMessage": "ارسال پیام",
     "name": "نام",
     "subject": "موضوع",
+    "subjectPresets": {
+      "role": "فرصت شغلی",
+      "project": "استعلام پروژه",
+      "other": "سایر"
+    },
     "message": "پیام",
-    "send": "ارسال پیام",
+    "send": "باز کردن کلاینت ایمیل",
     "required": "*",
-    "thankYou": "از پیام شما متشکرم!",
-    "thankYouSubtitle": "کلاینت ایمیل پیش‌فرض شما باید باز شود. اگر باز نشد، لطفاً پیام خود را مستقیماً به {email} ارسال کنید.",
+    "thankYou": "آماده ارسال",
+    "thankYouSubtitle": "کلاینت ایمیل شما باید با این پیام باز شود. اگر باز نشد، مستقیماً به {email} بنویسید.",
+    "sendAnother": "نوشتن پیام دیگر",
     "nameRequired": "نام الزامی است",
     "emailRequired": "ایمیل الزامی است",
     "emailInvalid": "لطفاً یک آدرس ایمیل معتبر وارد کنید",
@@ -86,29 +104,154 @@
     "phoneLabel": "تلفن",
     "linksLabel": "لینک‌ها",
     "frontend": "فرانت‌اند",
+    "stateAndApis": "حالت و API",
     "backend": "بک‌اند",
-    "infra": "زیرساخت و تحویل"
+    "data": "داده",
+    "infra": "ابری و قابلیت اطمینان"
   },
   "footer": {
     "quickLinks": "لینک‌های سریع",
     "connect": "ارتباط",
+    "email": "ایمیل",
     "rights": "تمام حقوق محفوظ است."
   },
   "profile": {
     "name": "بصیر پچاز",
-    "title": "مهندس ارشد فول استک",
-    "summary": "مهندس ارشد فول استک با بیش از ۱۴ سال تجربه حرفه‌ای در ارائه پلتفرم‌های وب و موبایل مقیاس‌پذیر و آماده تولید. تخصص بالا در سیستم‌های فرانت‌اند و بک‌اند با تمرکز بر React، Next.js، Node.js و Python. توانایی اثبات شده در طراحی معماری‌های قوی، بهینه‌سازی عملکرد و حفظ پایداری در محیط‌های پرترافیک و حساس تجاری. با سابقه همکاری با تیم‌های جهانی در محصولات حیاتی.",
+    "title": "مهندس ارشد فول‌استک",
+    "location": "ریموت — در دسترس در سراسر جهان",
+    "summary": "مهندس فول‌استک با بیش از ۱۴ سال تجربه در ساخت و بهره‌برداری از سیستم‌های وب، موبایل و پلتفرم تولیدی. کار اخیر کل مسیر را پوشش می‌دهد: کلاینت‌های React و React Native، سرویس‌های Python و Go و Node، پایپ‌لاین‌های Kafka روی Kubernetes، و CI/CD و observability که آن‌ها را پایدار نگه می‌دارد. عادت دارم خرابی را از UI تا بروکر دنبال کنم — در تیم‌های ریموت و توزیع‌شده.",
     "coreCompetencies": [
-      "معماری فول استک",
-      "مهندسی فرانت‌اند",
-      "طراحی API",
-      "بهینه‌سازی عملکرد",
-      "پایداری تولید",
-      "مقیاس‌پذیری سیستم"
+      "سیستم‌های تولیدی / SRE",
+      "معماری فول‌استک",
+      "React و React Native",
+      "تحویل رویدادمحور",
+      "CI/CD و Observability",
+      "پاسخ به حوادث"
     ],
     "languages": [
       { "name": "انگلیسی", "proficiency": "تسلط حرفه‌ای کاری" },
       { "name": "فارسی", "proficiency": "زبان مادری" }
-    ]
+    ],
+    "experience": {
+      "netbina": {
+        "company": "نت‌بینا",
+        "role": "مهندس ارشد فول‌استک / قابلیت اطمینان سایت",
+        "period": "۲۰۲۶ – اکنون",
+        "location": "ریموت",
+        "description": [
+          "بهره‌برداری سرتاسری Telescope: دریافت محتوا از شبکه‌های اجتماعی و بازارگاه‌ها، کارگران غنی‌سازی Kafka برای دسته‌بندی، احساس، موضوع و تشخیص نزدیک‌به-تکرار، ذخیره‌سازی PostgreSQL و Elasticsearch، API لاراول و پنل React — یک پلتفرم میکروسرویس تولیدی روی Kubernetes.",
+          "جایگزینی انتشار دستی بر پایه تگ با GitLab CI/CD شاخه‌محور: push به master یک ایمیج با SHA می‌سازد، به رجیستری خصوصی می‌فرستد و Deployment زنده Kubernetes را به‌روز می‌کند.",
+          "مقاوم‌سازی مسیر ingest و enrichment در برابر توقف با timeout صریح HTTP، محدود کردن retry، دسته‌بندی نوشتن Kafka به سرویس و افزایش replica کارگران.",
+          "ساخت reverse proxy با Go برای Google Gemini که جلوی هر فراخوانی AI می‌نشیند: احراز هویت با توکن مشترک، چرخش sticky کلید API روی HTTP 429، و allowlist دامنه/IP، با Docker Compose پشت Traefik.",
+          "ساخت سطوح health و superadmin اپراتوری با React تا فاصله‌های ingest و مشکلات نوع محتوا قبل از گزارش مشتری دیده شوند.",
+          "رهبری پاسخ به قطعی اولویت‌۱ که پس از ارتقای Docker میزبان، Git خودمیزبان روی همه مسیرها ۴۰۴ می‌داد و provider پروکسی شکسته بود: بازگردانی routing با پیکربندی فایل‌محور، بازگرداندن CI runnerها و نوشتن گزارش حادثه.",
+          "خودکارسازی تحویل SeePlayShow با GitHub Actions: انتشار Django به AWS Elastic Beanstalk و انتشار Node WebSocket به EC2 با rsync و PM2 پشت load balancer مشترک."
+        ]
+      },
+      "faradars": {
+        "company": "فرادرس",
+        "role": "مهندس React Native / فول‌استک",
+        "period": "۲۰۲۴ – ۲۰۲۶",
+        "location": "ریموت",
+        "description": [
+          "انتشار اپ یادگیری فرادرس تا نسخه ۲.۱.۲۰ روی React Native ۰.۸۶ و React ۱۹ با TypeScript: کشف و جستجوی دوره، درس‌های ویدیویی، دانلود و پیگیری پیشرفت.",
+          "کار با یک design system مشترک که به صورت پکیج npm خصوصی نسخه‌گذاری‌شده تحویل می‌شود تا همه صفحات روی یک قرارداد کامپوننت، تم و تایپوگرافی بمانند.",
+          "ساخت لایه آفلاین و کش با SWR و MMKV تا داده کاتالوگ و پیشرفت درس پس از قطع اتصال، رفتن به پس‌زمینه و راه‌اندازی مجدد اپ زنده بماند.",
+          "یکپارچه‌سازی پخش ویدیو با analytics پیشرفت، خرید درون‌برنامه‌ای، پیام‌رسانی push و Google Sign-In، و بهینه‌سازی virtualisation لیست برای جلسات طولانی مطالعه.",
+          "تحویل اصلاحات فوری بدون انتظار بررسی استور با به‌روزرسانی‌های OTA از CodePush، همراه با Sentry برای پایش کرش و رگرسیون."
+        ]
+      },
+      "bitpin": {
+        "company": "بیت‌پین",
+        "role": "مهندس فول‌استک",
+        "period": "۲۰۲۲ – ۲۰۲۴",
+        "location": "ریموت",
+        "description": [
+          "ساخت و نگهداری رابط‌های React و سرویس‌های Python برای معاملات، پرداخت‌ها و عملیات پشتیبان در چهار محصول: bitpin.ir، Paymoon، سیبا و چرتکه.",
+          "صحیح نگه داشتن صفحات پرتلاطم بازار، سفارش و موجودی با به‌روزرسانی مداوم با React Query و Redux، جایی که رندر کهنه هزینه مالی دارد.",
+          "تحویل سرویس‌ها و APIهای Python پشت گردش‌کارهای معاملاتی و اداری، شامل احراز هویت، قواعد کسب‌وکار و گزارش‌گیری عملیاتی.",
+          "تشخیص و رفع حوادث تولیدی روی پلتفرمی که پول جابه‌جا می‌کند، با دنبال کردن خرابی از مرز API تا UI به‌جای وصله‌کردن علامت."
+        ]
+      },
+      "sinansoft": {
+        "company": "سینان‌سافت",
+        "role": "مهندس فول‌استک (قراردادی)",
+        "period": "۲۰۱۸ – اکنون",
+        "location": "ریموت، پاره‌وقت",
+        "description": [
+          "ساخت و نگهداری پورتال اپراتوری مخابراتی CIP / UniVoIP، اکنون در نسخه v5.53: React با Material UI و جداول MUI X Premium، ورود یکپارچه Keycloak، analytics تعبیه‌شده Cube.js و Superset، به‌روزرسانی زنده روی STOMP، و ردیابی انتشار با Sentry.",
+          "تحویل سمت اشتراک همان پلتفرم به‌صورت گردش‌کارهای رویدادمحور Kafka: تأمین و انتقال شماره، onboarding مایکروسافت تیمز، تطبیق صورتحساب و خدمات فکس.",
+          "تحویل مجموعه‌ای از محصولات Next.js و React: sinansoft.com، کاتالوگ و ادمین SJI، PWA مدیریت وام LoanThem، ادمین Centralive، و سایت و ادمین AIOP روی Next.js با Tailwind CSS ۴، Material UI و React Query.",
+          "ساخت Know Yourself به‌صورت بک‌اند Django با کلاینت React Native، با مالکیت هر دو سمت قرارداد API."
+        ]
+      },
+      "arvand-avid": {
+        "company": "اروند آوید",
+        "role": "مهندس فول‌استک",
+        "period": "۲۰۱۷ – ۲۰۱۸",
+        "location": "ریموت",
+        "description": [
+          "ساخت APIهای NestJS و GraphQL (Apollo) با کش Redis پشت سه محصول: Lernito، مدیر گردش‌کار مجلات علمی Iknito و CMS بدون‌سر Troweb.",
+          "ساخت فرانت‌اندهای Next.js همان محصولات با React Query، Material UI و Emotion که همگی از یک سطح GraphQL کوئری می‌گیرند."
+        ]
+      },
+      "greenweb": {
+        "company": "گرین‌وب",
+        "role": "مهندس فول‌استک",
+        "period": "۲۰۱۱ – ۲۰۱۷",
+        "location": "ریموت",
+        "description": [
+          "ساخت و اجرای چاپ‌یروس، سیستم تولید چاپ، نیروی انسانی و مدیریت سفارش که روزانه توسط کارکنان عملیات استفاده می‌شد (PHP و MySQL، بعدها React)، و سیستم‌های وب برای ارائه‌دهنده هاستینگ ایران‌سرور."
+        ]
+      }
+    },
+    "projects": {
+      "telescope": {
+        "name": "تلسکوپ",
+        "description": "پلتفرم شنود اجتماعی: ingest ← غنی‌سازی Kafka ← Elasticsearch ← پنل اپراتوری React روی Kubernetes.",
+        "company": "نت‌بینا",
+        "period": "۲۰۲۶ – اکنون"
+      },
+      "seeplayshow": {
+        "name": "SeePlayShow",
+        "description": "محصول کنترل نمایش زنده: API جنگو، WebSocketهای Node، پنل وب زنده و تحویل AWS در staging و production.",
+        "company": "نت‌بینا",
+        "period": "۲۰۲۶ – اکنون"
+      },
+      "faradars": {
+        "name": "فرادرس",
+        "description": "اپ یادگیری React Native (نسخه ۲.۱.۲۰): کاتالوگ، درس‌های ویدیویی، پیشرفت آفلاین، خرید درون‌برنامه‌ای و به‌روزرسانی OTA.",
+        "company": "فرادرس",
+        "period": "۲۰۲۴ – ۲۰۲۶"
+      },
+      "cip-univoip": {
+        "name": "CIP / UniVoIP",
+        "description": "پورتال اپراتوری مخابرات و گردش‌کارهای اشتراک Kafka: شماره‌گذاری، onboarding تیمز، همگام‌سازی صورتحساب و analytics.",
+        "company": "سینان‌سافت",
+        "period": "۲۰۱۸ – اکنون"
+      },
+      "bitpin-exchange": {
+        "name": "صرافی بیت‌پین",
+        "description": "صرافی رمزارز، فروشگاه کریپتو و پنل‌های عملیات برای معاملات و گردش‌کارهای پشتیبان.",
+        "company": "بیت‌پین",
+        "period": "۲۰۲۲ – ۲۰۲۴"
+      },
+      "faranama": {
+        "name": "فاراناما",
+        "description": "ادمین Django، PostgreSQL و React — ساخت فول‌استک."
+      },
+      "dealertouch": {
+        "name": "Dealertouch",
+        "description": "ادمین React و shadcn/ui به‌همراه اپ React Native روی GraphQL و Redux Toolkit."
+      },
+      "kimdishop": {
+        "name": "KimdiShop",
+        "description": "فروشگاه Next.js و Tailwind CSS با کنسول ادمین PrimeReact."
+      },
+      "neowshop": {
+        "name": "Neowshop",
+        "description": "کلاینت React Native روی سرویس‌های Google Cloud."
+      }
+    }
   }
 }

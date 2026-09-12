@@ -3,32 +3,39 @@
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 
-import { profile } from "@/config/profile";
+import { useLocalizedProfile } from "@/lib/localizedProfile";
 import { SectionHeading } from "@/components/atomic/atoms/SectionHeading";
 import { Timeline } from "@/components/atomic/molecules/Timeline";
+import { Button } from "@/components/atomic/atoms/Button";
+
+const DEFAULT_VISIBLE = 12;
 
 export default function Experience() {
   const t = useTranslations("experience");
+  const localized = useLocalizedProfile();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [showAllTechs, setShowAllTechs] = useState(false);
 
-  // Extract all unique technologies
   const allTechnologies = useMemo(() => {
     const techSet = new Set<string>();
-    profile.experience.forEach((exp) => {
+    localized.experience.forEach((exp) => {
       exp.technologies.forEach((tech) => techSet.add(tech));
     });
     return Array.from(techSet).sort();
-  }, []);
+  }, [localized.experience]);
 
-  // Filter experience based on selected tags
+  const visibleTechnologies = showAllTechs
+    ? allTechnologies
+    : allTechnologies.slice(0, DEFAULT_VISIBLE);
+
   const filteredExperience = useMemo(() => {
     if (selectedTags.length === 0) {
-      return profile.experience;
+      return localized.experience;
     }
-    return profile.experience.filter((exp) =>
+    return localized.experience.filter((exp) =>
       selectedTags.some((tag) => exp.technologies.includes(tag))
     );
-  }, [selectedTags]);
+  }, [selectedTags, localized.experience]);
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) =>
@@ -40,22 +47,21 @@ export default function Experience() {
     <main className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-      {/* Filter Tags */}
-      <div className="mb-8">
-        <h3 className="mb-4 text-lg font-semibold text-black dark:text-gray-100">
+      <div className="mb-10">
+        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--foreground-subtle)]">
           {t("filterByTechnology")}
         </h3>
         <div className="flex flex-wrap gap-2">
-          {allTechnologies.map((tech) => {
+          {visibleTechnologies.map((tech) => {
             const isSelected = selectedTags.includes(tech);
             return (
               <button
                 key={tech}
                 onClick={() => toggleTag(tech)}
-                className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium transition-colors ${
+                className={`inline-flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors ${
                   isSelected
-                    ? "bg-black text-white dark:bg-gray-100 dark:text-gray-900"
-                    : "bg-slate-100 text-black hover:bg-slate-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                    ? "bg-[var(--accent-primary)] text-[var(--accent-primary-foreground)]"
+                    : "bg-[var(--tag-default-bg)] text-[var(--tag-default-text)] hover:bg-[var(--active-bg)]"
                 }`}
                 type="button"
               >
@@ -64,10 +70,20 @@ export default function Experience() {
             );
           })}
         </div>
+        {allTechnologies.length > DEFAULT_VISIBLE && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mt-3"
+            onClick={() => setShowAllTechs((v) => !v)}
+          >
+            {showAllTechs ? t("showLess") : t("showMore")}
+          </Button>
+        )}
         {selectedTags.length > 0 && (
           <button
             onClick={() => setSelectedTags([])}
-            className="mt-4 text-sm text-slate-700 underline transition-colors hover:text-black dark:text-gray-400 dark:hover:text-gray-100"
+            className="mt-3 block text-sm text-[var(--accent-primary)] underline underline-offset-2"
             type="button"
           >
             {t("clearFilters")}
@@ -75,12 +91,11 @@ export default function Experience() {
         )}
       </div>
 
-      {/* Timeline */}
       <div className="mb-8">
         {filteredExperience.length > 0 ? (
           <Timeline items={filteredExperience} />
         ) : (
-          <p className="text-center text-slate-700 dark:text-gray-400">
+          <p className="text-center text-[var(--foreground-muted)]">
             {t("noMatches")}
           </p>
         )}

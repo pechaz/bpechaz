@@ -4,17 +4,16 @@ interface CardProps {
   hover?: boolean;
 }
 
-export function Card({ children, className = '', hover = false }: CardProps) {
+export function Card({ children, className = "", hover = false }: CardProps) {
   const hoverStyles = hover
-    ? 'transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5'
-    : '';
-  
+    ? "transition-all duration-200 hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 hover:border-[var(--border-hover)]"
+    : "";
+
   return (
     <div
-      className={`rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900 ${hoverStyles} ${className}`}
+      className={`rounded-xl border border-[var(--border)] bg-[var(--card-background)] p-6 shadow-[var(--shadow-sm)] ${hoverStyles} ${className}`}
     >
       {children}
     </div>
   );
 }
-

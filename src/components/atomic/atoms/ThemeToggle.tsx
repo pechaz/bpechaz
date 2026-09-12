@@ -80,7 +80,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="inline-flex items-center justify-center rounded-lg p-2 text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
+      className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-[var(--foreground-muted)] transition-colors hover:bg-[var(--hover-bg)] hover:text-[var(--foreground)]"
       aria-label={`Switch to ${
         theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
       } theme`}
